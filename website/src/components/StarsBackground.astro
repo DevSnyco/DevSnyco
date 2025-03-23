@@ -1,0 +1,30 @@
+<div class="fixed inset-0 overflow-hidden pointer-events-none">
+  <div class="stars-container absolute inset-0">
+    {Array.from({ length: 50 }).map((_, i) => (
+      <div
+        class="star absolute w-1 h-1 bg-[#00b4b4] rounded-full"
+        style={`top: ${Math.random() * 100}%; left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 5}s;`}
+      />
+    ))}
+  </div>
+</div>
+
+<style>
+  .stars-container {
+    animation: twinkle 10s infinite;
+  }
+
+  .star {
+    animation: twinkle 1s infinite;
+    opacity: 0;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+</style> 

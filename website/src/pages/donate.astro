@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import StarsBackground from '../components/StarsBackground.astro';
+---
+
+<BaseLayout title="Snyco | Donate">
+  <StarsBackground />
+  <Navbar />
+  <main class="relative min-h-screen text-gray-100 pt-16">
+    <div id="gradient-overlay" class="fixed inset-0 bg-gradient-to-b from-black to-[#177171]/30 opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+    <div class="relative min-h-[calc(100vh-4rem)] flex items-center">
+      <!-- Donation Section -->
+      <section class="container mx-auto px-4 sm:px-4 py-4 w-full">
+        <div class="max-w-5xl mx-auto">
+          <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-[#00b4b4]/20 shadow-2xl">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-0 text-[#00b4b4] font-jetbrains tracking-tight">Support My Work</h2>
+
+            <!-- Payment Methods Grid -->
+            <div class="grid md:grid-cols-2 gap-4 sm:gap-6 md:h-[calc(100%-2rem)] -mt-4 sm:-mt-6">
+              <!-- Left Column -->
+              <div class="space-y-4 sm:space-y-6 flex flex-col justify-end">
+                <!-- Bank Transfer -->
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group flex flex-col">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src="/bank.svg" alt="Bank Transfer" class="w-6 h-6 sm:w-8 sm:h-8" />
+                    <h3 class="text-lg sm:text-xl font-bold text-[#00b4b4] group-hover:text-[#00a0a0] transition-colors">Bank Transfer</h3>
+                  </div>
+                  
+                  <!-- Country Selector -->
+                  <div class="mb-4">
+                    <select id="country-select" class="w-full bg-gray-800/50 border border-[#00b4b4]/20 rounded-lg px-3 py-2 text-gray-300 focus:outline-none focus:border-[#00b4b4]/40 transition-colors">
+                      <option value="sepa">Europe (SEPA)</option>
+                      <option value="usa">United States of America</option>
+                      <option value="uk">United Kingdom</option>
+                      <option value="switzerland">Switzerland</option>
+                      <option value="australia">Australia</option>
+                      <option value="singapore">Singapore</option>
+                      <option value="malaysia">Malaysia</option>
+                    </select>
+                  </div>
+
+                  <!-- Bank Details -->
+                  <div class="bg-gray-800/50 rounded-lg p-2 sm:p-2 border border-[#00b4b4]/10">
+                    <div id="bank-details" class="text-xs sm:text-sm text-gray-300">
+                      <!-- Default SEPA details -->
+                      <div id="sepa-details">
+                        <div class="flex">
+                          <code class="w-36">IBAN:</code>
+                          <code class="flex-grow">BE37 9050 5550 5528</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">TRWIBEB1XXX</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Wise</code>
+                        </div>
+                        <br/>
+                        <br/>
+                      </div>
+                      <!-- USA details -->
+                      <div id="usa-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">ACCOUNT NUMBER:</code>
+                          <code class="flex-grow">8314598251</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">TYPE:</code>
+                          <code class="flex-grow">Checking</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">ROUTING NUMBER:</code>
+                          <code class="flex-grow">026073150</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">CMFGUS33</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Community Federal Savings Bank</code>
+                        </div>
+                      </div>
+                      <!-- UK details -->
+                      <div id="uk-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">SORT CODE:</code>
+                          <code class="flex-grow">23-14-70</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">ACCOUNT NUMBER:</code>
+                          <code class="flex-grow">48365839</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">IBAN:</code>
+                          <code class="flex-grow">GB71 TRWI 2314 7048 3658 39</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">TRWIGB2LXXX</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Wise Payments Limited</code>
+                        </div>
+                      </div>
+                      <!-- Switzerland details -->
+                      <div id="switzerland-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">IBAN:</code>
+                          <code class="flex-grow">GB71 TRWI 2314 7048 3658 39</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">TRWIGB2LXXX</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Wise Payments Limited</code>
+                        </div>
+                        <br/>
+                        <br/>
+                      </div>
+                      <!-- Australia details -->
+                      <div id="australia-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">BSB:</code>
+                          <code class="flex-grow">774-001</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">ACCOUNT NUMBER:</code>
+                          <code class="flex-grow">226530537</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">TRWIAUS1XXX</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Wise Australia Pty Ltd</code>
+                        </div>
+                        <br/>
+                      </div>
+                      <!-- Singapore details -->
+                      <div id="singapore-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">BANK CODE:</code>
+                          <code class="flex-grow">0516</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">ACCOUNT NUMBER:</code>
+                          <code class="flex-grow">155-581-90</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">SWIFT/BIC:</code>
+                          <code class="flex-grow">TRWISGSGXXX</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">Wise Asia-Pacific Pte. Ltd.</code>
+                        </div>
+                        <br/>
+                      </div>
+                      <!-- Malaysia details -->
+                      <div id="malaysia-details" class="hidden">
+                        <div class="flex">
+                          <code class="w-36">ACCOUNT NUMBER:</code>
+                          <code class="flex-grow">312123401365372</code>
+                        </div>
+                        <div class="flex">
+                          <code class="w-36">BANK:</code>
+                          <code class="flex-grow">JPMorgan Chase Bank Berhad</code>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- XRP -->
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src="/xrp.svg" alt="XRP" class="w-6 h-6 sm:w-8 sm:h-8" />
+                    <h3 class="text-lg sm:text-xl font-bold text-[#00b4b4] group-hover:text-[#00a0a0] transition-colors">XRP</h3>
+                  </div>
+                  <div class="bg-gray-800/50 rounded-lg p-2 sm:p-3 border border-[#00b4b4]/10">
+                    <code class="text-xs sm:text-sm text-gray-300 break-all">rwpByfZ7McRUnj6iMFKNn7xwW5G1RphF6L</code>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column -->
+              <div class="space-y-4 sm:space-y-6">
+                <!-- Solana -->
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src="/solana.svg" alt="Solana" class="w-6 h-6 sm:w-8 sm:h-8" />
+                    <h3 class="text-lg sm:text-xl font-bold text-[#00b4b4] group-hover:text-[#00a0a0] transition-colors">Solana</h3>
+                  </div>
+                  <div class="bg-gray-800/50 rounded-lg p-2 sm:p-3 border border-[#00b4b4]/10">
+                    <code class="text-xs sm:text-sm text-gray-300 break-all">5y9rYqhvpmjq748rJC2MkFdHEjC2R62NuSJ2FGBJCmDw</code>
+                  </div>
+                </div>
+
+                <!-- Bitcoin -->
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src="/bitcoin.svg" alt="Bitcoin" class="w-6 h-6 sm:w-8 sm:h-8" />
+                    <h3 class="text-lg sm:text-xl font-bold text-[#00b4b4] group-hover:text-[#00a0a0] transition-colors">Bitcoin</h3>
+                  </div>
+                  <div class="bg-gray-800/50 rounded-lg p-2 sm:p-3 border border-[#00b4b4]/10">
+                    <code class="text-xs sm:text-sm text-gray-300 break-all">bc1qegw7sctgaaxmupvnxuhlzlps4dd6efe2nq028a</code>
+                  </div>
+                </div>
+
+                <!-- Ethereum -->
+                <div class="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group">
+                  <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                    <img src="/ethereum.svg" alt="Ethereum" class="w-6 h-6 sm:w-8 sm:h-8" />
+                    <h3 class="text-lg sm:text-xl font-bold text-[#00b4b4] group-hover:text-[#00a0a0] transition-colors">Ethereum</h3>
+                  </div>
+                  <div class="bg-gray-800/50 rounded-lg p-2 sm:p-3 border border-[#00b4b4]/10">
+                    <code class="text-xs sm:text-sm text-gray-300 break-all">0xC646F69066cE6bbd98C41a5411C6026c8517F3F4</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Note -->
+            <div class="mt-6 sm:mt-8 p-3 sm:p-4 bg-black/40 rounded-lg border border-[#00b4b4]/20 hover:border-[#00b4b4]/40 transition-all group">
+              <p class="text-xs sm:text-sm text-gray-400">
+                Thank you for your support! Your donations help me maintain and improve my projects.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  const gradientOverlay = document.getElementById('gradient-overlay');
+  
+  window.addEventListener('scroll', () => {
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    const opacity = Math.max(0.3, 1 - (scrollPercent / 100));
+    if (gradientOverlay) {
+      gradientOverlay.style.opacity = opacity.toString();
+    }
+  });
+
+  // Bank details switcher
+  const countrySelect = document.getElementById('country-select') as HTMLSelectElement;
+  const bankDetails = document.getElementById('bank-details');
+  
+  if (countrySelect && bankDetails) {
+    const allDetails = bankDetails.querySelectorAll('div[id$="-details"]');
+
+    countrySelect.addEventListener('change', () => {
+      const selectedCountry = countrySelect.value;
+      
+      // Hide all details
+      allDetails.forEach(detail => {
+        detail.classList.add('hidden');
+      });
+      
+      // Show selected country's details
+      const selectedDetails = document.getElementById(`${selectedCountry}-details`);
+      if (selectedDetails) {
+        selectedDetails.classList.remove('hidden');
+      }
+    });
+  }
+</script> 

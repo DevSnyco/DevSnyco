@@ -1,0 +1,103 @@
+---
+const navItems = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' }
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md border-b border-[#00b4b4]/10">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <a href="/" class="text-[#00b4b4] font-jetbrains text-xl font-bold tracking-tight hover:text-[#00a0a0] transition-colors">
+        Snyco
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        {navItems.map(item => (
+          <a 
+            href={item.href} 
+            class="text-gray-300 hover:text-[#00b4b4] transition-colors relative group"
+          >
+            {item.label}
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00b4b4] transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        ))}
+        <a 
+          id="donate-button" 
+          href="/donate" 
+          class="bg-black/40 hover:bg-black/60 text-[#00b4b4] px-3 py-1 rounded-lg transition-all duration-300 border-2 border-[#00b4b4]/20 hover:border-[#00b4b4]/40 font-jetbrains tracking-tight"
+        >
+          Donate
+        </a>
+      </div>
+      <button 
+        class="md:hidden text-gray-300 hover:text-[#00b4b4] transition-colors"
+        id="mobile-menu-button"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div 
+    class="md:hidden bg-black/95 backdrop-blur-md border-b border-[#00b4b4]/10 hidden transition-all duration-300 ease-in-out"
+    id="mobile-menu"
+  >
+    <div class="container mx-auto px-4 py-4 space-y-4">
+      {navItems.map(item => (
+        <a 
+          href={item.href} 
+          class="block text-gray-300 hover:text-[#00b4b4] transition-colors py-2"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a 
+        id="donate-button-mobile" 
+        href="/donate" 
+        class="block bg-black/40 hover:bg-black/60 text-[#00b4b4] px-0 py-0 rounded-lg transition-all duration-300 border-2 border-[#00b4b4]/20 hover:border-[#00b4b4]/40 font-jetbrains tracking-tight text-center"
+      >
+        Donate
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const donateButton = document.getElementById('donate-button') as HTMLAnchorElement;
+  const donateButtonMobile = document.getElementById('donate-button-mobile') as HTMLAnchorElement;
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenuButton?.contains(e.target as Node) && !mobileMenu?.contains(e.target as Node)) {
+      mobileMenu?.classList.add('hidden');
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Change button text and link if on the donation page
+  if (window.location.pathname === '/donate') {
+    if (donateButton) {
+      donateButton.textContent = 'Home';
+      donateButton.href = '/';
+    }
+    if (donateButtonMobile) {
+      donateButtonMobile.textContent = 'Home';
+      donateButtonMobile.href = '/';
+    }
+  }
+</script> 

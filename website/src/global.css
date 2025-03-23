@@ -1,0 +1,105 @@
+/* Reset some default styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.nav {
+  width: 100%;
+  padding: 1em;
+  background: #333;
+  color: #f7f9fc;
+  text-align: center;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav a {
+  color: #f7f9fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.container {
+  max-width: 800px;
+  padding: 1em;
+}
+
+section {
+  margin-bottom: 2em;
+}
+
+h2 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  background: #e9ecef;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin: 0.5em 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #f7f9fc;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #555;
+}
