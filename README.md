@@ -1,6 +1,6 @@
 ### Grüezi!
 
-👾 You're viewing **Snyco**'s github.
+👾 You're viewing **Edward**'s github.
 
 🔑 Yet another developer who prioritises privacy & security.
 
@@ -22,7 +22,7 @@
     ],
     "socials": {
         "discord": "snyco.dev",
-        "signal": "snyco.22",
+        "signal": "edw.67",
         "mastodon": "@snyco@swiss.social"
     },
     "host": "macOS",
